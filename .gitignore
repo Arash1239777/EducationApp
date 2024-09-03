@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/EducationalApi.App/obj
+/EducationalApi.Application/obj
+/EducationalApi.Dal/obj
+/EducationalApi.Domain/obj
+/EducationalApi.Infra/obj
