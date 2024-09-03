@@ -1,4 +1,7 @@
-﻿using Domain.Enums;
+﻿using Domain.Entities.Validators.Users.ClerksValidator;
+using Domain.Enums;
+using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
+using FluentValidation.Results;
 using System.Text;
 
 namespace Domain.Entities.Aggrigators.Users.Clerks;
@@ -21,7 +24,7 @@ public class Clerks : BaseInfo
     #endregion
     #endregion
 
-    public static Clerks Factory(
+    public static async Task<Clerks> Factory(
         string name,
         string lastName,
         string phoneNumber,
@@ -39,7 +42,9 @@ public class Clerks : BaseInfo
         sb.Append(' ');
         sb.Append(lastName);
 
-        return new Clerks()
+        ClerksValidator validator = new();
+
+        Clerks clerck = new ()
         {
             Name = name,
             LastName = lastName,
@@ -53,5 +58,18 @@ public class Clerks : BaseInfo
             Email = email,
             UserCode = userCode
         };
+
+       ValidationResult validationResult = await validator.ValidateAsync(clerck);
+
+        if (!validationResult.IsValid)
+        {
+            ClercksExeptions exeption = new("errors happend when creating clerck");
+
+            validationResult.Errors.ForEach(error => exeption.Errors.Add(error.ErrorMessage));
+
+            throw exeption;
+        }
+
+        return clerck;
     }
 }
