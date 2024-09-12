@@ -1,6 +1,10 @@
 ﻿using System;
 using Domain.Entities.Aggrigators.Users;
+using EducationalApi.Domain.Entities.Aggrigators.Users.Collegian;
+using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
+using EducationalApi.Domain.Entities.Validators.Users.MasterValidator;
 using EducationalApi.Domain.Enums;
+using FluentValidation.Results;
 
 namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
 {
@@ -37,7 +41,7 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
         /// <summary>
         /// تخصص استاد.
         /// </summary>
-        public string specialization { get; protected set; }
+        public EnSpecialization specialization { get; protected set; }
 
         #endregion
 
@@ -69,5 +73,60 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
         #endregion
 
         #endregion
+
+        public static async Task<Masters> Factory(
+            string name,
+            string lastName,
+            string phoneNumber,
+            DateTime birthdate,
+            string nationalCode,
+            bool gender,
+            short nationalty,
+            string email,
+            long master_id,
+            string department,
+            string title,
+            EnSpecialization specialization,
+            DateTime Hire_date,
+            double salary,
+            EnMasterStatus Status
+            )
+        {
+            MasterValidator validator = new();
+
+            Masters master = new()
+            {
+                Name = name,
+                LastName = lastName,
+                PhoneNumber = phoneNumber,
+                Birthdate = birthdate,
+                NationalCode = nationalCode,
+                Gender = gender,
+                Nationalty = nationalty,
+                Email = email,
+                master_id = master_id,
+                department = department,
+                title = title,
+                specialization = specialization,
+                Hire_date = Hire_date,
+                salary = salary,
+                Status = Status
+            };
+
+            ValidationResult validationResult = await validator.ValidateAsync(master);
+
+            if (!validationResult.IsValid)
+            {
+                ClercksExeptions exeption = new("errors happend when creating master.");
+
+                validationResult.Errors.ForEach(error => exeption.Errors.Add(error.ErrorMessage));
+
+                throw exeption;
+            }
+
+
+            return master;
+
+        }
     }
 }

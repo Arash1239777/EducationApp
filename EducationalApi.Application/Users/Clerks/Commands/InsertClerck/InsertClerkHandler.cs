@@ -7,15 +7,15 @@ namespace EducationalApi.Application.Users.Clerks.Commands.InsertClerck
     {
         public async Task<bool> Handle(InsertClerkCommand request, CancellationToken cancellationToken)
         {
-			try
-			{
+            try
+            {
 
-			}
-			catch (ClercksExeptions ex)
-			{
+            }
+            catch (ClercksExeptions ex)
+            {
 
-			}
-			return true;
+            }
+            return true;
         }
     }
 }

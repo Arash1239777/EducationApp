@@ -1,6 +1,12 @@
-﻿using System;
+﻿using Domain.Entities.Validators.Users.ClerksValidator;
+using Domain.Enums;
+using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
+using FluentValidation.Results;
+using System.Text;
 using Domain.Entities.Aggrigators.Users;
+using EducationalApi.Domain.Entities.Validators.Users.CollegianValidator;
 using EducationalApi.Domain.Enums;
+using Domain.Entities.Aggrigators.Users.Clerks;
 
 namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
 {
@@ -66,7 +72,7 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
 
         #endregion
 
-        public static Collegian Factory(
+        public static async Task<Collegian> Factory(
             string name,
             string lastName,
             string phoneNumber,
@@ -84,7 +90,10 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
             DateTime enrollment_date,
             EnCollegianStatus Status)
         {
-            return new Collegian()
+
+            CollegianValidator validator = new();
+
+            Collegian collegian = new ()
             {
                 Name = name,
                 LastName = lastName,
@@ -102,6 +111,21 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
                 enrollment_date = enrollment_date,
                 Status = Status
             };
+
+            ValidationResult validationResult = await validator.ValidateAsync(collegian);
+
+            if (!validationResult.IsValid)
+            {
+                ClercksExeptions exeption = new("errors happend when creating collegian.");
+
+                validationResult.Errors.ForEach(error => exeption.Errors.Add(error.ErrorMessage));
+
+                throw exeption;
+            }
+
+
+            return collegian;
+
         }
     }
 }

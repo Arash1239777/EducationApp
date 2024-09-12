@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Users\Clerks\Queries\GetAll\" />
+    <Folder Include="Users\Collegian\Queries\GetAll\" />
+    <Folder Include="Users\Masters\Queries\GetAll\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +18,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EducationalApi.Domain\EducationalApi.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\7.0.0\ref\net7.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

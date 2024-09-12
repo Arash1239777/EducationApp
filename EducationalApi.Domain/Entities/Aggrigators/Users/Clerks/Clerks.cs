@@ -59,11 +59,11 @@ public class Clerks : BaseInfo
             UserCode = userCode
         };
 
-       ValidationResult validationResult = await validator.ValidateAsync(clerck);
+        ValidationResult validationResult = await validator.ValidateAsync(clerck);
 
         if (!validationResult.IsValid)
         {
-            ClercksExeptions exeption = new("errors happend when creating clerck");
+            ClercksExeptions exeption = new("errors happend when creating clerck.");
 
             validationResult.Errors.ForEach(error => exeption.Errors.Add(error.ErrorMessage));
 

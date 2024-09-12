@@ -58,10 +58,8 @@ namespace EducationalApi.Domain.Entities.Validators.Users.MasterValidator
 
 
             RuleFor(masters => masters.specialization)
-                .NotEmpty()
-                .WithMessage("Error_Specialization_Not_Empty")
-                .MaximumLength(100)
-                .WithMessage("Error_Specialization_Max_Length_100");
+                .IsInEnum()
+                .WithMessage("Error_Status_Invalid_Enum_Value");
 
 
             RuleFor(masters => masters.Hire_date)
