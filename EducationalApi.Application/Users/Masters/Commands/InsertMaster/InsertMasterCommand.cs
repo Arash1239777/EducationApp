@@ -5,12 +5,12 @@ namespace EducationalApi.Application.Users.Masters.Commands.InsertMaster
 {
     internal class InsertMasterCommand : IRequest<bool>
     {
-        public string department { get; protected set; }
-        public string title { get; protected set; }
-        public EnSpecialization specialization { get; protected set; }
-        public DateTime Hire_date { get; protected set; }
-        public double salary { get; protected set; }
-        public EnMasterStatus Status { get; protected set; }
+        public string department { get; set; }
+        public string title { get; set; }
+        public EnSpecialization specialization { get; set; }
+        public DateTime Hire_date { get; set; }
+        public double salary { get; set; }
+        public EnMasterStatus Status { get; set; }
 
     }
 }
