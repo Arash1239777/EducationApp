@@ -3,6 +3,6 @@
 public enum EnSpecialization
 {
     Teacher,
-    Assistantprofessor,
+    AssistantProfessor,
     GroupManager
 }
