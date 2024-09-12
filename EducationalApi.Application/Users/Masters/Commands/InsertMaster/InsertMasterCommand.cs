@@ -3,7 +3,7 @@ using MediatR;
 
 namespace EducationalApi.Application.Users.Masters.Commands.InsertMaster
 {
-    internal class InsertMasterCommand : IRequest<bool>
+    public class InsertMasterCommand : IRequest<bool>
     {
         public string Department { get; set; }
         public string Title { get; set; }

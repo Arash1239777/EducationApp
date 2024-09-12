@@ -3,7 +3,7 @@ using MediatR;
 
 namespace EducationalApi.Application.Users.Collegian.Commands.InsertCollegian
 {
-    internal class InsertCollegianCommand : IRequest<bool>
+    public class InsertCollegianCommand : IRequest<bool>
     {
         public double GPA { get; set; }
         public string RoleNumber { get; set; }
