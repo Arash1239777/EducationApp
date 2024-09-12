@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EducationalApi.Domain.Enums;
+﻿using EducationalApi.Domain.Enums;
 using MediatR;
 
 namespace EducationalApi.Application.Users.Collegian.Commands.InsertCollegian
@@ -12,9 +7,9 @@ namespace EducationalApi.Application.Users.Collegian.Commands.InsertCollegian
     {
         public double GPA { get; set; }
         public string RoleNumber { get; set; }
-        public string major { get; set; }
-        public string academic_year { get; set; }
-        public DateTime enrollment_date { get; set; }
+        public string Major { get; set; }
+        public string Academic_year { get; set; }
+        public DateTime Enrollment_date { get; set; }
         public EnCollegianStatus Status { get; set; }
     }
 }

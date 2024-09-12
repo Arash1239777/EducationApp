@@ -1,12 +1,8 @@
-﻿using Domain.Entities.Validators.Users.ClerksValidator;
-using Domain.Enums;
-using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
+﻿using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
 using FluentValidation.Results;
-using System.Text;
 using Domain.Entities.Aggrigators.Users;
 using EducationalApi.Domain.Entities.Validators.Users.CollegianValidator;
 using EducationalApi.Domain.Enums;
-using Domain.Entities.Aggrigators.Users.Clerks;
 
 namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
 {

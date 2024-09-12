@@ -1,6 +1,4 @@
-﻿using System;
-using Domain.Entities.Aggrigators.Users;
-using EducationalApi.Domain.Entities.Aggrigators.Users.Collegian;
+﻿using Domain.Entities.Aggrigators.Users;
 using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
 using EducationalApi.Domain.Entities.Validators.Users.MasterValidator;
 using EducationalApi.Domain.Enums;
