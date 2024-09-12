@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EducationalApi.Domain.Entities.Aggrigators.Users.Collegian;
+﻿using EducationalApi.Domain.Entities.Aggrigators.Users.Collegian;
 using FluentValidation;
 
 namespace EducationalApi.Domain.Entities.Validators.Users.CollegianValidator
