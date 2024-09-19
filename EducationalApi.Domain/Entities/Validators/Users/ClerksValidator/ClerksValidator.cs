@@ -19,13 +19,13 @@ public class ClerksValidator : AbstractValidator<Clerks>
             .NotNull().WithMessage("name_can_not_be_null")
             .MaximumLength(50).WithMessage("name_length_can_not_bigger_than_50_character")
             .MinimumLength(3).WithMessage("name_length_can_not_less_than_3_character");
-        
+
         RuleFor(clerck => clerck.LastName)
             .NotEmpty().WithMessage("last_name_can_not_be_empty")
             .NotNull().WithMessage("last_name_can_not_be_null")
             .MaximumLength(50).WithMessage("last_name_length_can_not_bigger_than_50_character")
             .MinimumLength(3).WithMessage("last_name_length_can_not_less_than_3_character");
-        
+
         RuleFor(clerck => clerck.PhoneNumber)
             .NotEmpty().WithMessage("phone_number_can_not_be_empty")
             .NotNull().WithMessage("phone_number_can_not_be_null")

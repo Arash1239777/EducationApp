@@ -1,4 +1,4 @@
-﻿using EducationalApi.Domain.Entities.Aggrigators.Users.Collegian;
+﻿using Domain.Entities.Aggrigators.Users.Collegian;
 using FluentValidation;
 
 namespace EducationalApi.Domain.Entities.Validators.Users.CollegianValidator
@@ -33,7 +33,7 @@ namespace EducationalApi.Domain.Entities.Validators.Users.CollegianValidator
                 .MaximumLength(11).WithMessage("phone_number_length_can_not_bigger_than_11_character")
                 .MinimumLength(11).WithMessage("phone_number_length_can_not_less_than_11_character");
 
-            RuleFor(x => x.collegian_id)
+            RuleFor(x => x.CollegianId)
                 .GreaterThan(0)
                 .WithMessage("Error_Id_Greater_Than_Zero");
 
@@ -48,19 +48,19 @@ namespace EducationalApi.Domain.Entities.Validators.Users.CollegianValidator
                 .MaximumLength(20)
                 .WithMessage("Error_RoleNumber_Max_Length_20");
 
-            RuleFor(x => x.major)
+            RuleFor(x => x.Major)
                 .NotEmpty()
                 .WithMessage("Error_Major_Not_Empty")
                 .MaximumLength(100)
                 .WithMessage("Error_Major_Max_Length_100");
 
-            RuleFor(x => x.academic_year)
+            RuleFor(x => x.AcademicYear)
                 .NotEmpty()
                 .WithMessage("Error_AcademicYear_Not_Empty")
                 .Matches(@"^\d{4}/\d{4}$")
                 .WithMessage("Error_AcademicYear_Format_yyyy/yyyy");
 
-            RuleFor(x => x.enrollment_date)
+            RuleFor(x => x.EnrollmentDate)
                 .LessThanOrEqualTo(DateTime.Now)
                 .WithMessage("Error_EnrollmentDate_In_The_Past_Or_Today");
 

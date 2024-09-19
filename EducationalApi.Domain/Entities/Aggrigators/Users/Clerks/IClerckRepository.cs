@@ -9,5 +9,5 @@ public interface IClerckRepository
 
     Task<Clerks?> FindClerksByUserNameAsync(long userCode, CancellationToken cancellationToken);
 
-    Task<IReadOnlyList<Clerks>> GetAll(CancellationToken cancellationToken); 
+    Task<IReadOnlyList<Clerks>> GetAll(CancellationToken cancellationToken);
 }

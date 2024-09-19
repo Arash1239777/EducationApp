@@ -44,7 +44,7 @@ public class Clerks : BaseInfo
 
         ClerksValidator validator = new();
 
-        Clerks clerck = new ()
+        Clerks clerck = new()
         {
             Name = name,
             LastName = lastName,

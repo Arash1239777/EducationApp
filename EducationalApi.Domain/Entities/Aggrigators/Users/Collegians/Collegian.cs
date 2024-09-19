@@ -1,10 +1,9 @@
 ﻿using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
-using FluentValidation.Results;
-using Domain.Entities.Aggrigators.Users;
 using EducationalApi.Domain.Entities.Validators.Users.CollegianValidator;
 using EducationalApi.Domain.Enums;
+using FluentValidation.Results;
 
-namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
+namespace Domain.Entities.Aggrigators.Users.Collegian
 {
     /// <summary>
     /// نمایانگر اطلاعات دانشجو در سیستم آموزشی.
@@ -18,9 +17,9 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
         #region Numbers
 
         /// <summary>
-        /// شناسه‌ی منحصر به فرد دانشجو.
+        /// شناسه‌ی‌ منحصر‌به‌فرد دانشجو.
         /// </summary>
-        public long collegian_id { get; protected set; }
+        public long CollegianId { get; protected set; }
 
         /// <summary>
         /// معدل دانشجو.
@@ -32,19 +31,19 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
         #region Strings
 
         /// <summary>
-        /// شماره دانشجویی.
+        /// شماره‌ی‌ دانشجویی.
         /// </summary>
         public string RoleNumber { get; protected set; }
 
         /// <summary>
-        /// رشته تحصیلی دانشجو.
+        /// رشته‌ی‌ تحصیلی دانشجو.
         /// </summary>
-        public string major { get; protected set; }
+        public string Major { get; protected set; }
 
         /// <summary>
         /// سال تحصیلی دانشجو.
         /// </summary>
-        public string academic_year { get; protected set; }
+        public string AcademicYear { get; protected set; }
 
         #endregion
 
@@ -53,7 +52,7 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
         /// <summary>
         /// تاریخ ثبت‌نام دانشجو.
         /// </summary>
-        public DateTime enrollment_date { get; protected set; }
+        public DateTime EnrollmentDate { get; protected set; }
 
         #endregion
 
@@ -77,19 +76,18 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
             bool gender,
             short nationalty,
             string email,
-            long collegian_id,
+            long collegianId,
             double GPA,
-            string RoleNumber,
+            string roleNumber,
             string major,
-            string academic_year,
-            string ContactNumber,
-            DateTime enrollment_date,
-            EnCollegianStatus Status)
+            string academicYear,
+            string contactNumber,
+            DateTime enrollmentDate,
+            EnCollegianStatus status)
         {
-
             CollegianValidator validator = new();
 
-            Collegian collegian = new ()
+            Collegian collegian = new()
             {
                 Name = name,
                 LastName = lastName,
@@ -99,29 +97,27 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegian
                 Gender = gender,
                 Nationalty = nationalty,
                 Email = email,
-                collegian_id = collegian_id,
+                CollegianId = collegianId,
                 GPA = GPA,
-                RoleNumber = RoleNumber,
-                major = major,
-                academic_year = academic_year,
-                enrollment_date = enrollment_date,
-                Status = Status
+                RoleNumber = roleNumber,
+                Major = major,
+                AcademicYear = academicYear,
+                EnrollmentDate = enrollmentDate,
+                Status = status
             };
 
             ValidationResult validationResult = await validator.ValidateAsync(collegian);
 
             if (!validationResult.IsValid)
             {
-                ClercksExeptions exeption = new("errors happend when creating collegian.");
+                ClercksExeptions exception = new("Errors happened when creating collegian.");
 
-                validationResult.Errors.ForEach(error => exeption.Errors.Add(error.ErrorMessage));
+                validationResult.Errors.ForEach(error => exception.Errors.Add(error.ErrorMessage));
 
-                throw exeption;
+                throw exception;
             }
 
-
             return collegian;
-
         }
     }
 }

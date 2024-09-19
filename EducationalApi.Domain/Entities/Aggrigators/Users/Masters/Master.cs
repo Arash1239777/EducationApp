@@ -1,26 +1,25 @@
-﻿using Domain.Entities.Aggrigators.Users;
-using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
+﻿using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
 using EducationalApi.Domain.Entities.Validators.Users.MasterValidator;
 using EducationalApi.Domain.Enums;
 using FluentValidation.Results;
 
-namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
+namespace Domain.Entities.Aggrigators.Users.Master
 {
     /// <summary>
-    /// نمایانگر اطلاعات اساتید در سیستم آموزشی.
+    /// نمایانگر اطلاعات استاد در سیستم آموزشی.
     /// </summary>
-    public class Masters : BaseInfo
+    public class Master : BaseInfo
     {
-        private Masters() { }
+        private Master() { }
 
-        #region props
+        #region Props
 
         #region Numbers
 
         /// <summary>
-        /// شناسه‌ی استاد.
+        /// شناسه‌ی‌ استاد.
         /// </summary>
-        public long master_id { get; protected set; }
+        public long MasterId { get; protected set; }
 
         #endregion
 
@@ -29,17 +28,17 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
         /// <summary>
         /// بخش مربوط به استاد.
         /// </summary>
-        public string department { get; protected set; }
+        public string Department { get; protected set; }
 
         /// <summary>
         /// عنوان علمی استاد.
         /// </summary>
-        public string title { get; protected set; }
+        public string Title { get; protected set; }
 
         /// <summary>
         /// تخصص استاد.
         /// </summary>
-        public EnSpecialization specialization { get; protected set; }
+        public EnSpecialization Specialization { get; protected set; }
 
         #endregion
 
@@ -48,7 +47,7 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
         /// <summary>
         /// تاریخ استخدام.
         /// </summary>
-        public DateTime Hire_date { get; protected set; }
+        public DateTime HireDate { get; protected set; }
 
         #endregion
 
@@ -57,7 +56,7 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
         /// <summary>
         /// حقوق استاد.
         /// </summary>
-        public double salary { get; protected set; }
+        public double Salary { get; protected set; }
 
         #endregion
 
@@ -72,7 +71,7 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
 
         #endregion
 
-        public static async Task<Masters> Factory(
+        public static async Task<Master> Factory(
             string name,
             string lastName,
             string phoneNumber,
@@ -81,18 +80,17 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
             bool gender,
             short nationalty,
             string email,
-            long master_id,
+            long masterId,
             string department,
             string title,
             EnSpecialization specialization,
-            DateTime Hire_date,
+            DateTime hireDate,
             double salary,
-            EnMasterStatus Status
-            )
+            EnMasterStatus status)
         {
             MasterValidator validator = new();
 
-            Masters master = new()
+            Master master = new()
             {
                 Name = name,
                 LastName = lastName,
@@ -102,29 +100,27 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
                 Gender = gender,
                 Nationalty = nationalty,
                 Email = email,
-                master_id = master_id,
-                department = department,
-                title = title,
-                specialization = specialization,
-                Hire_date = Hire_date,
-                salary = salary,
-                Status = Status
+                MasterId = masterId,
+                Department = department,
+                Title = title,
+                Specialization = specialization,
+                HireDate = hireDate,
+                Salary = salary,
+                Status = status
             };
 
             ValidationResult validationResult = await validator.ValidateAsync(master);
 
             if (!validationResult.IsValid)
             {
-                ClercksExeptions exeption = new("errors happend when creating master.");
+                ClercksExeptions exception = new("Errors happened when creating master.");
 
-                validationResult.Errors.ForEach(error => exeption.Errors.Add(error.ErrorMessage));
+                validationResult.Errors.ForEach(error => exception.Errors.Add(error.ErrorMessage));
 
-                throw exeption;
+                throw exception;
             }
 
-
             return master;
-
         }
     }
 }

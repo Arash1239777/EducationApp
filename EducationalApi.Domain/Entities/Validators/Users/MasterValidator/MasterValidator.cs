@@ -1,9 +1,9 @@
-﻿using EducationalApi.Domain.Entities.Aggrigators.Users.Masters;
+﻿using Domain.Entities.Aggrigators.Users.Master;
 using FluentValidation;
 
 namespace EducationalApi.Domain.Entities.Validators.Users.MasterValidator
 {
-    public class MasterValidator:AbstractValidator<Masters>
+    public class MasterValidator : AbstractValidator<Master>
     {
         public MasterValidator()
         {
@@ -33,40 +33,40 @@ namespace EducationalApi.Domain.Entities.Validators.Users.MasterValidator
                 .MaximumLength(11).WithMessage("phone_number_length_can_not_bigger_than_11_character")
                 .MinimumLength(11).WithMessage("phone_number_length_can_not_less_than_11_character");
 
-            RuleFor(masters => masters.master_id)
+            RuleFor(masters => masters.MasterId)
                 .GreaterThan(0)
                 .WithMessage("Error_MasterId_Greater_Than_Zero");
 
 
-            RuleFor(masters => masters.department)
+            RuleFor(masters => masters.Department)
                 .NotEmpty()
                 .WithMessage("Error_Department_Not_Empty")
                 .MaximumLength(100)
                 .WithMessage("Error_Department_Max_Length_100");
 
 
-            RuleFor(masters => masters.title)
+            RuleFor(masters => masters.Title)
                 .NotEmpty()
                 .WithMessage("Error_Title_Not_Empty")
                 .MaximumLength(50)
                 .WithMessage("Error_Title_Max_Length_50");
 
 
-            RuleFor(masters => masters.specialization)
+            RuleFor(masters => masters.Specialization)
                 .IsInEnum()
                 .WithMessage("Error_Status_Invalid_Enum_Value");
 
 
-            RuleFor(masters => masters.Hire_date)
+            RuleFor(masters => masters.HireDate)
                 .LessThanOrEqualTo(DateTime.Now)
                 .WithMessage("Error_HireDate_In_The_Past_Or_Today");
 
 
-            RuleFor(masters => masters.salary)
+            RuleFor(masters => masters.Salary)
                 .GreaterThanOrEqualTo(0)
                 .WithMessage("Error_Salary_Greater_Than_Or_Equal_Zero");
 
-            
+
             RuleFor(masters => masters.Status)
                 .IsInEnum()
                 .WithMessage("Error_Status_Invalid_Enum_Value");

@@ -1,6 +1,6 @@
 ﻿namespace EducationalApi.Domain.Entities.Exceptions.Users.Collegian
 {
-    public class CollegianExceptions:Exception
+    public class CollegianExceptions : Exception
     {
         public List<string> Errors { get; set; } = new();
         public CollegianExceptions() : base() { }
