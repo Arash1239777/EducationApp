@@ -24,7 +24,7 @@ public class Clerks : BaseInfo
     #endregion
     #endregion
 
-    public static async Task<Clerks> Factory(
+    public static ValueTask<Clerks> Factory(
         string name,
         string lastName,
         string phoneNumber,
@@ -59,7 +59,7 @@ public class Clerks : BaseInfo
             UserCode = userCode
         };
 
-        ValidationResult validationResult = await validator.ValidateAsync(clerck);
+        ValidationResult validationResult = validator.Validate(clerck);
 
         if (!validationResult.IsValid)
         {
@@ -70,6 +70,6 @@ public class Clerks : BaseInfo
             throw exeption;
         }
 
-        return clerck;
+        return ValueTask.FromResult(clerck);
     }
 }
