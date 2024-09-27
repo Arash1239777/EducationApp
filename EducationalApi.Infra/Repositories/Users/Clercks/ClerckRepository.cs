@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Aggrigators.Users.Clerks;
+﻿using Domain.Entities.Aggrigators.Users.Clerk;
 using EducationalApi.Domain.Entities.Aggrigators.Users.Clerk;
 using Microsoft.EntityFrameworkCore;
 

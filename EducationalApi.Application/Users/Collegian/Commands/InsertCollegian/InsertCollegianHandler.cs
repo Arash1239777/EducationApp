@@ -2,7 +2,7 @@
 using EducationalApi.Domain.Entities.Exceptions.Users.Collegian;
 using MediatR;
 
-namespace EducationalApi.Application.Users.Clerks.Commands.InsertClerck
+namespace EducationalApi.Application.Users.Collegian.Commands.InsertClerck
 {
     internal class InsertCollegianHandler : IRequestHandler<InsertCollegianCommand, bool>
     {

@@ -4,7 +4,7 @@ using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
 using FluentValidation.Results;
 using System.Text;
 
-namespace Domain.Entities.Aggrigators.Users.Clerks;
+namespace Domain.Entities.Aggrigators.Users.Clerk;
 public class Clerks : BaseInfo
 {
     private Clerks() { }

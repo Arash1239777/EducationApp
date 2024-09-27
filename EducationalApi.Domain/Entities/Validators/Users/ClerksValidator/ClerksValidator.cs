@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Aggrigators.Users.Clerks;
+﻿using Domain.Entities.Aggrigators.Users.Clerk;
 using FluentValidation;
 
 namespace Domain.Entities.Validators.Users.ClerksValidator;

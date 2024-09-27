@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Aggrigators.Users.Clerks;
+﻿using Domain.Entities.Aggrigators.Users.Clerk;
 
 namespace EducationalApi.Domain.Entities.Aggrigators.Users.Clerk;
 public interface IClerckRepository

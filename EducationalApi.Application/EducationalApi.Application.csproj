@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Users\Clerks\Queries\GetAll\" />
     <Folder Include="Users\Collegian\Queries\GetAll\" />
     <Folder Include="Users\Masters\Queries\GetAll\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
     <PackageReference Include="MediatR" Version="12.4.0" />
   </ItemGroup>
 

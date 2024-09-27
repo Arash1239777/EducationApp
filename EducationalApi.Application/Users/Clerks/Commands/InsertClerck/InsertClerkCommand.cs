@@ -1,8 +1,9 @@
 ﻿using Domain.Enums;
+using EducationalApi.Application.Users.Clerk.Commands.InsertClerck.Contracts;
 using MediatR;
 
-namespace EducationalApi.Application.Users.Clerks.Commands.InsertClerck;
-public class InsertClerkCommand : IRequest<bool>
+namespace EducationalApi.Application.Users.Clerk.Commands.InsertClerck;
+public class InsertClerkCommand : IRequest<InsertClerckResponseContract>
 {
     public string Name { get; set; }
     public string LastName { get; set; }

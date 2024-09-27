@@ -1,6 +1,10 @@
 ﻿using EducationalApi.Domain.Entities;
 using EducationalApi.Domain.Entities.Aggrigators.Users.Clerk;
+using EducationalApi.Domain.Entities.Aggrigators.Users.Collegians;
+using EducationalApi.Domain.Entities.Aggrigators.Users.Masters;
 using EducationalApi.Infra.Repositories.Users.Clercks;
+using EducationalApi.Infra.Repositories.Users.Collegians;
+using EducationalApi.Infra.Repositories.Users.Masters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +24,8 @@ public static class InfraDependencyInjection
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IClerckRepository, ClerckRepository>();
+        services.AddScoped<ICollegianRepository, ColegianRepository>();
+        services.AddScoped<IMasterRepository, MasterRepository>();
 
         return services;
     }

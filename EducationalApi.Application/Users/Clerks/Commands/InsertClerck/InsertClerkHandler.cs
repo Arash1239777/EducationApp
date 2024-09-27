@@ -1,21 +1,41 @@
-﻿using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
+﻿using EducationalApi.Domain.Entities;
+using EducationalApi.Domain.Entities.Exceptions.Users.Clerck;
+using Domain.Entities.Aggrigators.Users.Clerk;
 using MediatR;
+using EducationalApi.Application.Users.Clerk.Commands.InsertClerck.Contracts;
 
-namespace EducationalApi.Application.Users.Clerks.Commands.InsertClerck
+namespace EducationalApi.Application.Users.Clerk.Commands.InsertClerck;
+internal class InsertClerkHandler : IRequestHandler<InsertClerkCommand, InsertClerckResponseContract>
 {
-    internal class InsertClerkHandler : IRequestHandler<InsertClerkCommand, bool>
+    private readonly IUnitOfWork _unitOfWork;
+    public InsertClerkHandler(IUnitOfWork unitOfWork)
     {
-        public async Task<bool> Handle(InsertClerkCommand request, CancellationToken cancellationToken)
+        _unitOfWork = unitOfWork;
+    }
+
+    public async Task<InsertClerckResponseContract> Handle(InsertClerkCommand request, CancellationToken cancellationToken)
+    {
+        InsertClerckResponseContract response = new();
+        try
         {
-            try
-            {
+            Clerks clerk = await Clerks.Factory(
+                request.Name,
+                request.LastName,
+                request.PhoneNumber,
+                request.Birthdate,
+                request.NationalCode,
+                request.Gender,
+                request.Nationalty,
+                request.Position,
+                request.Email,
+                request.UserCode);
 
-            }
-            catch (ClercksExeptions ex)
-            {
-
-            }
-            return true;
+            _unitOfWork.ClerckRepository.Add(clerk);
         }
+        catch (ClercksExeptions ex)
+        {
+            throw new NotImplementedException();
+        }
+        return response;
     }
 }
