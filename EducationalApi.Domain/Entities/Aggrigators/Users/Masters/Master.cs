@@ -71,6 +71,20 @@ namespace Domain.Entities.Aggrigators.Users.Master
 
         #endregion
 
+        public void Update(
+            string title,
+            EnSpecialization specialization,
+            DateTime hireDate,
+            double salary,
+            EnMasterStatus status)
+        {
+            Title = title;
+            Specialization = specialization;
+            HireDate = hireDate;
+            Salary = salary;
+            Status = status;
+        }
+
         public static async Task<Master> Factory(
             string name,
             string lastName,
@@ -80,7 +94,6 @@ namespace Domain.Entities.Aggrigators.Users.Master
             bool gender,
             short nationalty,
             string email,
-            long masterId,
             string department,
             string title,
             EnSpecialization specialization,
@@ -100,7 +113,6 @@ namespace Domain.Entities.Aggrigators.Users.Master
                 Gender = gender,
                 Nationalty = nationalty,
                 Email = email,
-                MasterId = masterId,
                 Department = department,
                 Title = title,
                 Specialization = specialization,

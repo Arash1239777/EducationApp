@@ -1,9 +1,7 @@
-﻿using EducationalApi.Application.Users.Clerk.Queries.GetAll.Contracts;
-using EducationalApi.Application.Users.Clerk.Queries.GetAll;
-using EducationalApi.Application.Users.Collegian.Queries.GetAll.Contracts;
-using MediatR;
+﻿using EducationalApi.Application.Users.Collegian.Queries.GetAll.Contracts;
 using EducationalApi.Domain.Entities;
 using Mapster;
+using MediatR;
 
 namespace EducationalApi.Application.Users.Collegians.Queries.GetAll
 {

@@ -7,6 +7,7 @@ namespace EducationalApi.Infra
 {
     internal class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> dbContextOptions) : base(dbContextOptions) { }
         public DbSet<Clerks> Clercks { get; set; }
         public DbSet<Collegian> Collegians { get; set; }
         public DbSet<Master> Masters { get; set; }

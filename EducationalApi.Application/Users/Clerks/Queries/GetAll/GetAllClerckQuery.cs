@@ -2,6 +2,6 @@
 using MediatR;
 
 namespace EducationalApi.Application.Users.Clerk.Queries.GetAll;
-public class GetAllClerckQuery : IRequest<List<GetAllClerckResponseContract>>, IRequest<GetAllClerckResponseContract>
+public class GetAllClerckQuery : IRequest<List<GetAllClerckResponseContract>>
 {
 }

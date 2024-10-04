@@ -2,15 +2,14 @@
 using EducationalApi.Domain.Enums;
 using MediatR;
 
-namespace EducationalApi.Application.Users.Masters.Commands.UpdateMaster
+namespace EducationalApi.Application.Users.Masters.Commands.UpdateMaster;
+public record UpdateMasterCommand :IRequest<UpdateMasterResponseContract>
 {
-    public class UpdateMasterCommand :IRequest<UpdateMasterResponseContract>
-    {
-        public string Department { get; set; }
-        public string Title { get; set; }
-        public EnSpecialization Specialization { get; set; }
-        public DateTime Hire_date { get; set; }
-        public double Salary { get; set; }
-        public EnMasterStatus Status { get; set; }
-    }
+    public long MasterId { get; set; }
+    public string Department { get; set; }
+    public string Title { get; set; }
+    public EnSpecialization Specialization { get; set; }
+    public DateTime HireDate { get; set; }
+    public double Salary { get; set; }
+    public EnMasterStatus Status { get; set; }
 }

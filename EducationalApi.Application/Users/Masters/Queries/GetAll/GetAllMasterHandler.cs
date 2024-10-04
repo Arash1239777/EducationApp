@@ -1,30 +1,23 @@
-﻿using EducationalApi.Application.Users.Collegian.Queries.GetAll.Contracts;
-using EducationalApi.Application.Users.Collegians.Queries.GetAll;
+﻿using EducationalApi.Application.Users.Masters.Queries.GetAll.Contracts;
 using EducationalApi.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Mapster;
+using MediatR;
 
-namespace EducationalApi.Application.Users.Masters.Queries.GetAll
+namespace EducationalApi.Application.Users.Masters.Queries.GetAll;
+internal class GetAllMasterHandler : IRequestHandler<GetAllMasterQuery, List<GetMasterAllResponseContract>>
 {
-    internal class GetAllMasterHandler
+    private readonly IUnitOfWork _unitOfWork;
+    public GetAllMasterHandler(IUnitOfWork unitOfWork)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public GetAllMasterHandler(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+        _unitOfWork = unitOfWork;
+    }
 
-        public async Task<List<GetAllMasterHandler>> Handle(GetAllMasterHandler request, CancellationToken cancellationToken)
-        {
-            var result = await _unitOfWork.CollegianRepository.GetAll(cancellationToken);
+    public async Task<List<GetMasterAllResponseContract>> Handle(GetAllMasterQuery request, CancellationToken cancellationToken)
+    {
+        var result = await _unitOfWork.MasterRepository.GetAll(cancellationToken);
 
-            var response = result.Adapt<List<GetAllMasterHandler>>();
+        var response = result.Adapt<List<GetMasterAllResponseContract>>();
 
-            return response;
-        }
+        return response;
     }
 }

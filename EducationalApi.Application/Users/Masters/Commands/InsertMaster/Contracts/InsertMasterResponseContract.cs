@@ -1,8 +1,5 @@
-﻿namespace EducationalApi.Application.Users.Masters.Commands.InsertMaster.Contracts
+﻿namespace EducationalApi.Application.Users.Masters.Commands.InsertMaster.Contracts;
+public record InsertMasterResponseContract()
 {
-    public record InsertMasterResponseContract()
-    {
-
-    }
-
+    public bool Created { get; set; }
 }

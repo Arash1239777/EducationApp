@@ -4,7 +4,7 @@ using MediatR;
 
 namespace EducationalApi.Application.Users.Collegians.Queries.GetAll
 {
-    public class GetAllCollegianQuery: IRequest<List<GetAllCollegianRequestContract>>, IRequest<GetAllCollegianResponseContract>
+    public class GetAllCollegianQuery: IRequest<List<GetAllCollegianResponseContract>>
     {
     }
 }
