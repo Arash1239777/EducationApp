@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EducationalApi.Infra.Repositories.Users.Masters
 {
-    internal class MasterRepository : IMasterRepository
+    public class MasterRepository : IMasterRepository
     {
         private readonly AppDbContext _context;
 

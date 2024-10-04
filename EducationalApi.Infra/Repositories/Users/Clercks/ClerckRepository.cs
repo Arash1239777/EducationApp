@@ -3,7 +3,7 @@ using EducationalApi.Domain.Entities.Aggrigators.Users.Clerk;
 using Microsoft.EntityFrameworkCore;
 
 namespace EducationalApi.Infra.Repositories.Users.Clercks;
-internal class ClerckRepository : IClerckRepository
+public class ClerckRepository : IClerckRepository
 {
     private readonly AppDbContext _context;
     public ClerckRepository(AppDbContext context)

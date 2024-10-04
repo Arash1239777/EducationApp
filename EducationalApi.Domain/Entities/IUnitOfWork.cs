@@ -9,7 +9,7 @@ public interface IUnitOfWork : IDisposable
     public IMasterRepository MasterRepository { get; set; }
     public ICollegianRepository CollegianRepository { get; set; }
     Task SaveChangesAsync(CancellationToken cancellationToken);
-    Task BeginTransactionAsync(CancellationToken cancellationToken);
-    Task CommitAsync(CancellationToken cancellationToken);
-    Task RollbackAsync(CancellationToken cancellationToken);
+    //Task BeginTransactionAsync(CancellationToken cancellationToken);
+    //Task CommitAsync(CancellationToken cancellationToken);
+    //Task RollbackAsync(CancellationToken cancellationToken);
 }

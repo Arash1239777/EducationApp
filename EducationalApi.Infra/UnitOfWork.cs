@@ -9,18 +9,16 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly AppDbContext _appDbContext;
     private IDbContextTransaction _transaction;
-    internal UnitOfWork(
+    public UnitOfWork(
         AppDbContext appDbContext,
         IClerckRepository clerckRepository,
         IMasterRepository masterRepository,
-        ICollegianRepository collegianRepository,
-        IDbContextTransaction transaction)
+        ICollegianRepository collegianRepository)
     {
         ClerckRepository = clerckRepository;
         CollegianRepository = collegianRepository;
         MasterRepository = masterRepository;
         _appDbContext = appDbContext;
-        _transaction = transaction; 
     }
     public IClerckRepository ClerckRepository { get; set; }
     public IMasterRepository MasterRepository { get; set; }

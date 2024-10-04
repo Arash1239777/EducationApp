@@ -3,7 +3,7 @@ using EducationalApi.Domain.Entities.Aggrigators.Users.Collegians;
 using Microsoft.EntityFrameworkCore;
 
 namespace EducationalApi.Infra.Repositories.Users.Collegians;
-internal class ColegianRepository : ICollegianRepository
+public class ColegianRepository : ICollegianRepository
 {
     private readonly AppDbContext _context;
 

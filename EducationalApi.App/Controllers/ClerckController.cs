@@ -7,10 +7,10 @@ namespace EducationalApi.App.Controllers;
 [ApiController]
 public class ClerckController : ControllerBase
 {
-    private readonly IMediator _mediator;
-    public ClerckController(IMediator mediator)
+    private readonly ISender _sender;
+    public ClerckController(ISender sender)
     {
-        _mediator = mediator;   
+        _sender = sender;   
     }
 
     [HttpGet]
@@ -18,7 +18,7 @@ public class ClerckController : ControllerBase
     {
         GetAllClerckQuery query = new();
 
-        var response = await _mediator.Send(query);
+        var response = await _sender.Send(query);
 
         return Ok(response);
     }
