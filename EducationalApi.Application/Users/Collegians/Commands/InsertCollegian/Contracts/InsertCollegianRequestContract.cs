@@ -1,6 +1,6 @@
 ﻿using EducationalApi.Application.Users.BaseContracts;
 
-namespace EducationalApi.Application.Users.Collegian.Commands.InsertCollegian.Contracts
+namespace EducationalApi.Application.Users.Collegians.Commands.InsertCollegian.Contracts
 {
     public record InsertCollegianRequestContract:BaseUserContract
     {

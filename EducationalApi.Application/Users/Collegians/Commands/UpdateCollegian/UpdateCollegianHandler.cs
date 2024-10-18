@@ -1,6 +1,6 @@
 ﻿using EducationalApi.Application.Users.Collegians.Commands.UpdateCollegian.Contracts;
 using MediatR;
-using EducationalApi.Domain.Entities.Exceptions.Users.Collegian;
+using EducationalApi.Domain.Entities.Exceptions.Users.Collegians;
 using EducationalApi.Domain.Entities;
 
 namespace EducationalApi.Application.Users.Collegians.Commands.UpdateCollegian

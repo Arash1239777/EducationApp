@@ -1,8 +1,8 @@
-﻿using EducationalApi.Application.Users.Collegian.Commands.InsertCollegian.Contracts;
+﻿using EducationalApi.Application.Users.Collegians.Commands.InsertCollegian.Contracts;
 using EducationalApi.Domain.Enums;
 using MediatR;
 
-namespace EducationalApi.Application.Users.Collegian.Commands.InsertCollegian
+namespace EducationalApi.Application.Users.Collegians.Commands.InsertCollegian
 {
     public class InsertCollegianCommand : IRequest<InsertCollegianResponseContract>
     {

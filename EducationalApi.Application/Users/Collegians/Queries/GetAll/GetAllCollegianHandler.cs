@@ -1,4 +1,4 @@
-﻿using EducationalApi.Application.Users.Collegian.Queries.GetAll.Contracts;
+﻿using EducationalApi.Application.Users.Collegians.Queries.GetAll.Contracts;
 using EducationalApi.Domain.Entities;
 using Mapster;
 using MediatR;
