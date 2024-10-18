@@ -31,6 +31,10 @@ internal class InsertClerkHandler : IRequestHandler<InsertClerkCommand, InsertCl
                 request.UserCode);
 
             _unitOfWork.ClerckRepository.Add(clerk);
+
+           await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            response.IsCreated = true;
         }
         catch (ClercksExeptions ex)
         {

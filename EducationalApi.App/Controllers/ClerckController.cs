@@ -1,4 +1,8 @@
-﻿using EducationalApi.Application.Users.Clerk.Queries.GetAll;
+﻿using EducationalApi.Application.Users.Clerk.Commands.InsertClerck;
+using EducationalApi.Application.Users.Clerk.Commands.InsertClerck.Contracts;
+using EducationalApi.Application.Users.Clerk.Queries.GetAll;
+using EducationalApi.Application.Users.Clerk.Queries.GetAll.Contracts;
+using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,8 +22,18 @@ public class ClerckController : ControllerBase
     {
         GetAllClerckQuery query = new();
 
-        var response = await _sender.Send(query);
+        List<GetAllClerckResponseContract> response = await _sender.Send(query, cancellationToken);
 
         return Ok(response);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(InsertClerckRequestContract request, CancellationToken cancellationToken)
+    {
+        InsertClerkCommand command = request.Adapt<InsertClerkCommand>();
+
+        InsertClerckResponseContract resopne = await _sender.Send(command, cancellationToken);
+
+        return Ok(resopne);
     }
 }

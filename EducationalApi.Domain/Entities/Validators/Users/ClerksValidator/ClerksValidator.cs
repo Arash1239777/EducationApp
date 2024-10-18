@@ -9,9 +9,8 @@ public class ClerksValidator : AbstractValidator<Clerks>
         RuleFor(clerk => clerk.Email)
             .NotEmpty().WithMessage("email_can_not_be_empty")
             .NotNull().WithMessage("email_can_not_be_null")
-            .MaximumLength(30).WithMessage("email_length_can_not_bigger_than_30_character")
             .MinimumLength(10).WithMessage("email_length_can_not_less_than_10_character")
-            .Matches("@\"^([\\w-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([\\w-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$\"")
+            .Matches(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$")
             .WithMessage("email_has_bad_experition");
 
         RuleFor(clerck => clerck.Name)
@@ -33,8 +32,8 @@ public class ClerksValidator : AbstractValidator<Clerks>
             .MinimumLength(11).WithMessage("phone_number_length_can_not_less_than_11_character");
 
         RuleFor(clerck => clerck.UserCode)
-            .LessThan(400000000).WithMessage("user_code_can_not_be_less_than_400000000")
-            .GreaterThan(500000000).WithMessage("user_code_can_not_be_bigger_than_500000000");
+            .GreaterThan(400000000).WithMessage("user_code_can_not_be_less_than_400000000")
+            .LessThan(500000000).WithMessage("user_code_can_not_be_bigger_than_500000000");
 
         RuleFor(clerck => clerck.Position)
             .IsInEnum().WithMessage("position_not_valid");

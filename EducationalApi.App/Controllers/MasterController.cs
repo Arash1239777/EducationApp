@@ -1,6 +1,5 @@
 ﻿using EducationalApi.Application.Users.Masters.Queries.GetAll;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EducationalApi.App.Controllers
