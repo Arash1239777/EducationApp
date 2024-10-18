@@ -32,8 +32,8 @@ public class ClerckController : ControllerBase
     {
         InsertClerkCommand command = request.Adapt<InsertClerkCommand>();
 
-        InsertClerckResponseContract resopne = await _sender.Send(command, cancellationToken);
+        InsertClerckResponseContract response = await _sender.Send(command, cancellationToken);
 
-        return Ok(resopne);
+        return Ok(response);
     }
 }

@@ -20,8 +20,27 @@ internal class InsertCollegianHandler : IRequestHandler<InsertCollegianCommand, 
     {
         InsertCollegianResponseContract response = new();
         try
-        { 
-            //No Implement.
+        {
+            Collegian collegian = await Collegian.Factory(
+                request.Name,
+                request.LastName,
+                request.PhoneNumber,
+                request.Birthdate,
+                request.NationalCode,
+                request.Gender,
+                request.Nationalty,
+                request.Email,
+                request.GPA,
+                request.RoleNumber,
+                request.Major,
+                request.AcademicYear,
+                request.Enrollment_date,
+                request.Status
+            );
+
+            _unitOfWork.CollegianRepository.Add(collegian);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            response.IsCreated = true;
         }
         catch (CollegianExceptions ex)
         {

@@ -1,5 +1,5 @@
 ﻿using Domain.Entities.Aggrigators.Users.Clerk;
-using Domain.Entities.Aggrigators.Users.Collegian;
+using Domain.Entities.Aggrigators.Users.Collegians;
 using Domain.Entities.Aggrigators.Users.Master;
 using Microsoft.EntityFrameworkCore;
 
