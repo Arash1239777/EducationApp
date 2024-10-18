@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EducationalApi.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241004191408_db_init")]
-    partial class dbinit
+    [Migration("20241018145555_AddDatabaseSchema")]
+    partial class AddDatabaseSchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
