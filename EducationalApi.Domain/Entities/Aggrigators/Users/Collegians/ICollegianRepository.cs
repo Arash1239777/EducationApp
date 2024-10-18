@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Aggrigators.Users.Collegian;
+﻿using Domain.Entities.Aggrigators.Users.Collegians;
 
 namespace EducationalApi.Domain.Entities.Aggrigators.Users.Collegians
 {

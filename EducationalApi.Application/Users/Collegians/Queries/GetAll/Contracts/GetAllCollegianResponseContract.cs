@@ -1,6 +1,6 @@
 ﻿using EducationalApi.Domain.Enums;
 
-namespace EducationalApi.Application.Users.Collegian.Queries.GetAll.Contracts
+namespace EducationalApi.Application.Users.Collegians.Queries.GetAll.Contracts
 {
     public record GetAllCollegianResponseContract
     {

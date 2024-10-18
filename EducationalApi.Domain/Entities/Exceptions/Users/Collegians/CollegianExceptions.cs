@@ -1,4 +1,4 @@
-﻿namespace EducationalApi.Domain.Entities.Exceptions.Users.Collegian
+﻿namespace EducationalApi.Domain.Entities.Exceptions.Users.Collegians
 {
     public class CollegianExceptions : Exception
     {

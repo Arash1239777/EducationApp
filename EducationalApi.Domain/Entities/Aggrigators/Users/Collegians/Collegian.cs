@@ -3,7 +3,7 @@ using EducationalApi.Domain.Entities.Validators.Users.CollegianValidator;
 using EducationalApi.Domain.Enums;
 using FluentValidation.Results;
 
-namespace Domain.Entities.Aggrigators.Users.Collegian
+namespace Domain.Entities.Aggrigators.Users.Collegians
 {
     /// <summary>
     /// نمایانگر اطلاعات دانشجو در سیستم آموزشی.

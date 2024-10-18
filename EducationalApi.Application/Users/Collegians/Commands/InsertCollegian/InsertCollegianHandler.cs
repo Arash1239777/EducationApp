@@ -1,10 +1,11 @@
-﻿using EducationalApi.Application.Users.Collegian.Commands.InsertCollegian;
-using EducationalApi.Application.Users.Collegian.Commands.InsertCollegian.Contracts;
+﻿using Domain.Entities.Aggrigators.Users.Collegians;
+using EducationalApi.Application.Users.Collegians.Commands.InsertCollegian;
+using EducationalApi.Application.Users.Collegians.Commands.InsertCollegian.Contracts;
 using EducationalApi.Domain.Entities;
-using EducationalApi.Domain.Entities.Exceptions.Users.Collegian;
+using EducationalApi.Domain.Entities.Exceptions.Users.Collegians;
 using MediatR;
 
-namespace EducationalApi.Application.Users.Collegian.Commands.InsertClerck;
+namespace EducationalApi.Application.Users.Collegians.Commands.InsertClerck;
 
 internal class InsertCollegianHandler : IRequestHandler<InsertCollegianCommand, InsertCollegianResponseContract>
 {
