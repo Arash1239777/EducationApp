@@ -9,3 +9,5 @@
 /EducationalApi.Domain/obj
 /EducationalApi.Infra/obj
 /EducationalApi.Infra/bin/Debug/net7.0
+/EducationalApi.App/bin/Debug/net7.0
+/EducationalApi.Application/bin/Debug/net7.0
