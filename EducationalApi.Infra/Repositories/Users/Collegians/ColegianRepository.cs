@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Aggrigators.Users.Collegian;
+﻿using Domain.Entities.Aggrigators.Users.Collegians;
 using EducationalApi.Domain.Entities.Aggrigators.Users.Collegians;
 using Microsoft.EntityFrameworkCore;
 
