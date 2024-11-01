@@ -6,8 +6,11 @@ namespace EducationalApi.Domain.Entities.Aggrigators.Users.Masters
     {
         void Add(Master master);
 
+        void Delete(Master master);
+
         Task<Master?> FindMastersAsync(long id);
 
         Task<IReadOnlyList<Master>> GetAll(CancellationToken cancellationToken);
+
     }
 }

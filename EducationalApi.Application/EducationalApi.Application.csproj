@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Users\Masters\Commands\DeleteMaster\Contracts\" />
     <Folder Include="Users\Masters\Commands\InsertMaster\Contracts\" />
     <Folder Include="Users\Masters\Commands\UpdateMaster\Contracts\" />
   </ItemGroup>

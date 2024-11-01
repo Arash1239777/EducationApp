@@ -7,12 +7,11 @@ namespace EducationalApi.Domain.Entities.Validators.Users.MasterValidator
     {
         public MasterValidator()
         {
-            RuleFor(masters => masters.Email)
+            RuleFor(clerk => clerk.Email)
                 .NotEmpty().WithMessage("email_can_not_be_empty")
                 .NotNull().WithMessage("email_can_not_be_null")
-                .MaximumLength(30).WithMessage("email_length_can_not_bigger_than_30_character")
                 .MinimumLength(10).WithMessage("email_length_can_not_less_than_10_character")
-                .Matches("@\"^([\\w-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([\\w-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$\"")
+                .Matches(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$")
                 .WithMessage("email_has_bad_experition");
 
             RuleFor(masters => masters.Name)
@@ -32,10 +31,6 @@ namespace EducationalApi.Domain.Entities.Validators.Users.MasterValidator
                 .NotNull().WithMessage("phone_number_can_not_be_null")
                 .MaximumLength(11).WithMessage("phone_number_length_can_not_bigger_than_11_character")
                 .MinimumLength(11).WithMessage("phone_number_length_can_not_less_than_11_character");
-
-            RuleFor(masters => masters.MasterId)
-                .GreaterThan(0)
-                .WithMessage("Error_MasterId_Greater_Than_Zero");
 
 
             RuleFor(masters => masters.Department)

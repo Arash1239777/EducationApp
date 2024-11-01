@@ -17,11 +17,6 @@ namespace Domain.Entities.Aggrigators.Users.Collegians
         #region Numbers
 
         /// <summary>
-        /// شناسه‌ی‌ منحصر‌به‌فرد دانشجو.
-        /// </summary>
-        public long CollegianId { get; protected set; }
-
-        /// <summary>
         /// معدل دانشجو.
         /// </summary>
         public double GPA { get; protected set; }
@@ -76,12 +71,10 @@ namespace Domain.Entities.Aggrigators.Users.Collegians
             bool gender,
             short nationalty,
             string email,
-            long collegianId,
             double GPA,
             string roleNumber,
             string major,
             string academicYear,
-            string contactNumber,
             DateTime enrollmentDate,
             EnCollegianStatus status)
         {
@@ -97,7 +90,6 @@ namespace Domain.Entities.Aggrigators.Users.Collegians
                 Gender = gender,
                 Nationalty = nationalty,
                 Email = email,
-                CollegianId = collegianId,
                 GPA = GPA,
                 RoleNumber = roleNumber,
                 Major = major,

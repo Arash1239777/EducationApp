@@ -29,7 +29,7 @@ internal class InsertMasterHandler : IRequestHandler<InsertMasterCommand, Insert
                 request.Department,
                 request.Title,
                 request.Specialization,
-                request.Hire_date,
+                request.HireDate,
                 request.Salary,
                 request.Status);
 

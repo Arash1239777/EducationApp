@@ -16,6 +16,9 @@ namespace EducationalApi.Infra.Repositories.Users.Masters
         public void Add(Master master)
             => _context.Masters.Add(master);
 
+        public void Delete(Master master)
+            => _context.Masters.Remove(master);
+
 
         public async Task<Master?> FindMastersAsync(long id)
             => await _context.Masters.FindAsync(id);
